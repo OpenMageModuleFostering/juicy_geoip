@@ -1,6 +1,7 @@
 <?php
 
 class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
+    
     public function isPrivateIp()
     {
         if($this->getConfig('general/private_bypass')){
@@ -45,10 +46,11 @@ class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
             $oldSession = $_SESSION;
             session_decode($sessionFile);
             $adminSessionData = $_SESSION;
-            $_SESSION = $oldSession;
+            $_SESSION = $oldSession; 
             
-        } if(array_key_exists('user', $adminSessionData['admin'])){
-            $adminUserObj = $adminSessionData['admin']['user'];            
+            if(array_key_exists('user', $adminSessionData['admin'])){
+                $adminUserObj = $adminSessionData['admin']['user'];            
+            }            
         }
         if(isset($adminUserObj)){
             return $adminUserObj->getId() && $adminUserObj->getIsActive();

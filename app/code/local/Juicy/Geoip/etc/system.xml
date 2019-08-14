@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
 <config>
     <tabs>
         <juicy translate="label" module="geoip">
@@ -81,17 +74,6 @@ and open the template in the editor.
                                 <show_in_store>0</show_in_store> 
                                 <depends><status>1</status></depends>
                             </switch_currency>
-                            <!--
-                            <switch_locale translate="label">
-                                <label>Allow Locale(Translation) Switching</label>
-                                <frontend_type>select</frontend_type>
-                                <source_model>adminhtml/system_config_source_enabledisable</source_model>
-                                <sort_order>50</sort_order>
-                                <show_in_default>1</show_in_default>
-                                <show_in_website>1</show_in_website>
-                                <show_in_store>0</show_in_store>
-                            </switch_locale>
-                            -->
                             <switch_store translate="label">
                                 <label>Allow Store Switching</label>
                                 <frontend_type>select</frontend_type>
