@@ -4,7 +4,7 @@ class Juicy_Geoip_Model_Observer
 {
     public function controllerActionPredispatch($e)
     {
-        if(Mage::helper("geoip")->isModuleEnabled() == 1 && !Mage::helper("geoip")->isPrivateIp() && !Mage::helper("geoip")->isCrawler()){
+        if(Mage::helper("geoip")->isModuleEnabled() == 1 && !Mage::helper("geoip")->isPrivateIp() && !Mage::helper("geoip")->isCrawler() && !Mage::helper("geoip")->isApi()){
             if(Mage::helper("geoip")->enableTestMode()){
                 Mage::getModel('core/session')->unsGeoipChecked();
             }

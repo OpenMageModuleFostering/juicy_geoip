@@ -16,6 +16,11 @@ class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         return false;
     }
+    public function isApi()
+    {
+        $req = Mage::app()->getRequest()->getModuleName();
+        return $req == "api" ? true : false;
+    }
     public function enableTestMode()
     {
         $type = $this->getTestingType();
