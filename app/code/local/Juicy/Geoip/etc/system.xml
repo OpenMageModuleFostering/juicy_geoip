@@ -43,7 +43,7 @@ and open the template in the editor.
                             <testing translate="label">
                                 <label>GeoIP Testing Mode</label>
                                 <frontend_type>select</frontend_type>
-                                <comment>Enable/Disable testing mode</comment>
+                                <comment>Enable/Disable testing mode. This will disable session storage for the users location</comment>
                                 <source_model>adminhtml/system_config_source_enabledisable</source_model>
                                 <sort_order>25</sort_order>
                                 <show_in_default>1</show_in_default>
@@ -54,7 +54,7 @@ and open the template in the editor.
                             <country_override translate="label">
                                 <label>Country Override</label>
                                 <frontend_type>text</frontend_type>
-                                <comment>ISO 3166 country code to mimic. Must be filled in for testing mode to work.</comment>
+                                <comment>ISO 3166 country code to mimic. Can be left blank to disable session only</comment>
                                 <sort_order>30</sort_order>
                                 <show_in_default>1</show_in_default>
                                 <show_in_website>1</show_in_website>
@@ -92,13 +92,12 @@ and open the template in the editor.
                                 <show_in_store>0</show_in_store> 
                                 <depends><status>1</status></depends>
                             </switch_store>
-							<!--
                             <apache_or_file translate="label">
                                 <label>Use my own GeoIP file</label>
                                 <frontend_type>select</frontend_type>
                                 <source_model>adminhtml/system_config_source_enabledisable</source_model>
                                 <sort_order>70</sort_order>
-                                <comment> <![CDATA[ <span>Enable if you do not need/want to use the Apache GeoIP module <b style="color:red;">EXPERIMENTAL ONLY</b></span> ]]></comment>
+                                <comment> <![CDATA[ <span>Enable if you do not have to use the Apache GeoIP module</span> ]]></comment>
                                 <show_in_default>1</show_in_default>
                                 <show_in_website>1</show_in_website>
                                 <show_in_store>0</show_in_store> 
@@ -108,13 +107,12 @@ and open the template in the editor.
                                 <label>GeoIP data Override file name</label>
                                 <frontend_type>text</frontend_type>
                                 <sort_order>80</sort_order>
-                                <comment>Place .dat file in [Mage Dir]/var/juicy/geoip</comment>
+                                <comment>Place .dat file in [Mage Dir]/lib/Juicy/Geoip/Data</comment>
                                 <show_in_default>1</show_in_default>
                                 <show_in_website>1</show_in_website>
                                 <show_in_store>0</show_in_store>
                                 <depends><apache_or_file>1</apache_or_file></depends>
                             </file_location>
-							-->
                         </fields>
                     </general>
                     <geoipset translate="label" module="geoip">

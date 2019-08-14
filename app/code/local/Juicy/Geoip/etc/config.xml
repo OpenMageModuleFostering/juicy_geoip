@@ -4,7 +4,7 @@
 <config>
     <modules>
         <Juicy_Geoip>
-            <version>0.2.0</version>
+            <version>1.1.0</version>
         </Juicy_Geoip>
     </modules>
     <global>
@@ -45,7 +45,7 @@
                 <switch_currency>0</switch_currency>
                 <switch_store>0</switch_store>
                 <apache_or_file>0</apache_or_file>
-                <file_location>EXAMPLE: geoip.dat</file_location>                
+                <file_location>geoip.dat</file_location>                
             </general>  
             <geoipset>    
                        
