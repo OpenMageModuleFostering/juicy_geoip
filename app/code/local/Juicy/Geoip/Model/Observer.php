@@ -6,6 +6,7 @@ class Juicy_Geoip_Model_Observer
     {
         if(Mage::helper("geoip")->isModuleEnabled() == 1 && !Mage::helper("geoip")->isPrivateIp() && !Mage::helper("geoip")->isCrawler()){
             if(Mage::helper("geoip")->enableTestMode()){
+                var_dump("in here");
                 Mage::getModel('core/session')->unsGeoipChecked();
             }
             $session = Mage::getModel('core/session')->getGeoipChecked();
@@ -14,6 +15,7 @@ class Juicy_Geoip_Model_Observer
                 if($redirStore){
                     $e->getControllerAction()->getResponse()->setRedirect($redirStore);
                 }
+                Mage::getSingleton('core/session')->setGeoipChecked(true);
             }
         }
     }

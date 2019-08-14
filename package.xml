@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package>
     <name>Juicy_GeoIP</name>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <stability>stable</stability>
     <license>GPL</license>
     <channel>community</channel>
     <extends/>
     <summary>Change currency using the visitors IP address and the PHP GeoIP module</summary>
     <description>Gets the customers current country using PHP's GeoIP module, filters through a list of countries and grabs the associated currency code for Magento</description>
-    <notes>FIXED: Bug causing system configuration to not load correctly</notes>
+    <notes>FIXED: Bug forcing non-switchable stores</notes>
     <authors><author><name>Jonathan Webb</name><user>JuicyMedia</user><email>jonathan.webb@juicymedia.co.uk</email></author></authors>
-    <date>2015-05-05</date>
-    <time>13:04:34</time>
-    <contents><target name="magelocal"><dir name="Juicy"><dir name="Geoip"><dir name="Block"><file name="Countrydefine.php" hash="0032d7797b0dc464fe0edc99d6a7fe7e"/></dir><dir name="Helper"><file name="Data.php" hash="9882f9b97a39dfa24e5c4308ccb64e4f"/></dir><dir name="Model"><dir name="Adminhtml"><dir name="Source"><file name="TestingMode.php" hash="2dd38a3453e62a540122f7bafeda852e"/></dir></dir><file name="Geoip.php" hash="839209264d547ecce878609430efc3fd"/><file name="Observer.php" hash="8da0cfe6f653a32498deb1ce2be4c616"/></dir><dir name="etc"><file name="adminhtml.xml" hash="91b7ec025a4c78cfec3ccabbad065ecb"/><file name="config.xml" hash="f259a8d24dc9aaf7ee23943f4ecf26dc"/><file name="system.xml" hash="fa8ad2819935e9ad08a901d334ea8537"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Juicy_Geoip.xml" hash="c4ebc7b11208b6c6b6020cb581ba9b12"/></dir></target><target name="magelib"><dir name="Juicy"><dir name="Geoip"><dir name="Data"><file name="geoip.dat" hash="76476935f1cfea10145cf52d3798f801"/></dir><file name="geoip.inc" hash="09b0a2dd03361a2cb00ef5ec68b4edea"/></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="juicy"><dir name="geoip"><dir name="system"><dir name="config"><dir name="form"><dir name="field"><file name="array.phtml" hash="6335d9d4d1ce8a63793a1dede6061010"/></dir></dir></dir></dir></dir></dir></dir></dir></dir></dir></target></contents>
+    <date>2015-05-11</date>
+    <time>09:51:38</time>
+    <contents><target name="magelocal"><dir name="Juicy"><dir name="Geoip"><dir name="Block"><file name="Countrydefine.php" hash="0032d7797b0dc464fe0edc99d6a7fe7e"/></dir><dir name="Helper"><file name="Data.php" hash="9882f9b97a39dfa24e5c4308ccb64e4f"/></dir><dir name="Model"><dir name="Adminhtml"><dir name="Source"><file name="TestingMode.php" hash="2dd38a3453e62a540122f7bafeda852e"/></dir></dir><file name="Geoip.php" hash="839209264d547ecce878609430efc3fd"/><file name="Observer.php" hash="acfd54746fc9d37171aa3d70b4592714"/></dir><dir name="etc"><file name="adminhtml.xml" hash="91b7ec025a4c78cfec3ccabbad065ecb"/><file name="config.xml" hash="f259a8d24dc9aaf7ee23943f4ecf26dc"/><file name="system.xml" hash="fa8ad2819935e9ad08a901d334ea8537"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Juicy_Geoip.xml" hash="c4ebc7b11208b6c6b6020cb581ba9b12"/></dir></target><target name="magelib"><dir name="Juicy"><dir name="Geoip"><dir name="Data"><file name="geoip.dat" hash="76476935f1cfea10145cf52d3798f801"/></dir><file name="geoip.inc" hash="09b0a2dd03361a2cb00ef5ec68b4edea"/></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="juicy"><dir name="geoip"><dir name="system"><dir name="config"><dir name="form"><dir name="field"><file name="array.phtml" hash="6335d9d4d1ce8a63793a1dede6061010"/></dir></dir></dir></dir></dir></dir></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
