@@ -3,7 +3,78 @@
 class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
     public function isPrivateIp()
     {
+        if($this->getConfig('general/private_bypass')){
+            return false;
+        }
         return !filter_var(Mage::helper('core/http')->getRemoteAddr(), FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+    }
+    public function isCrawler()
+    {
+        if(isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])){
+            return true;
+        }
+        return false;
+    }
+    public function enableTestMode()
+    {
+        $type = $this->getTestingType();
+        switch ($type){
+            case 0:
+                $ret = false;
+                break;
+            case 1:
+                $ret = $this->adminActive();
+                break;
+            case 2:
+                $ret = $this->adminIpMatch();
+                break;
+            case 3:
+                $ret = true;
+                break;
+            default:
+                $ret = false;
+                break;            
+        }
+        return $ret;
+    }
+    public function adminActive()
+    {        
+        if(array_key_exists('adminhtml', $_COOKIE)){
+            $sessionFilePath = Mage::getBaseDir('session').DS.'sess_'.$_COOKIE['adminhtml'];
+            $sessionFile = file_get_contents($sessionFilePath);
+            $oldSession = $_SESSION;
+            session_decode($sessionFile);
+            $adminSessionData = $_SESSION;
+            $_SESSION = $oldSession;
+            
+        } if(array_key_exists('user', $adminSessionData['admin'])){
+            $adminUserObj = $adminSessionData['admin']['user'];            
+        }
+        if(isset($adminUserObj)){
+            return $adminUserObj->getId() && $adminUserObj->getIsActive();
+        }
+        return false;
+    }   
+    public function adminIpMatch()
+    {        
+        $ipList = str_replace(" ", "", $this->getConfig('general/ip_whitelist'));
+        $ipArr = explode(",", $ipList);
+        $this->switchRemoteHeaders();
+        $remoteAddr = Mage::helper('core/http')->getRemoteAddr();
+        if(in_array($remoteAddr, $ipArr)){
+            return true;
+        }
+        return false;
+    }   
+    public function switchRemoteHeaders()
+    {             
+        if($this->getConfig('general/varnish_enabled')){
+            $headers = str_replace(" ", "", $this->getConfig('general/varnish_headers'));
+            $headerArr = explode(",", $headers);
+            for($i=0; $i<count($headerArr);$i++){
+                Mage::getConfig()->setNode('global/remote_addr_headers/header'.$i+1, $headerArr[$i]);
+            }                  
+        }
     }
     public function getConfig($key)
     {        
@@ -13,7 +84,7 @@ class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         return Mage::getStoreConfig('geoip/general/status');
     }
-    public function isTestMode()
+    public function getTestingType()
     {
         return Mage::getStoreConfig('geoip/general/testing');
     }
@@ -26,7 +97,8 @@ class Juicy_Geoip_Helper_Data extends Mage_Core_Helper_Abstract {
         return Mage::getStoreConfig('geoip/general/switch_'.$key);
     }
     
-    public function getCountryList(){
+    public function getCountryList()
+    {
         return array (
             'AF' => 'Afghanistan',
             'AL' => 'Albania',

@@ -45,10 +45,10 @@ class Juicy_Geoip_Model_Geoip
     }
     protected function _getCountryCode()
     {
-        if(Mage::helper('geoip')->isTestMode()){
+        if(Mage::helper('geoip')->enableTestMode()){
             $overrideCountry = Mage::helper('geoip')->testOverrideCountry();
             if(!empty($overrideCountry)){
-                return Mage::helper('geoip')->testOverrideCountry();
+                return $overrideCountry;
             }
         }            
         return $this->_getCountryCodeFromIp($this->_getIp());
@@ -60,6 +60,7 @@ class Juicy_Geoip_Model_Geoip
     
     protected function _getIp(){
         //Using Mage HTTP helper because Varnish can confuse PHP method
+        Mage::helper('geoip')->switchRemoteHeaders();
         return Mage::helper('core/http')->getRemoteAddr();
     }
     
