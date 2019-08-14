@@ -33,9 +33,9 @@ class Juicy_Geoip_Model_Geoip
     protected function _setStore($searchArr)
     {
         if(Mage::helper('geoip')->canSwitch("store")){
-            $storeName = Mage::app()->getStore($searchArr['store'])->getName();
-            if ($storeName) {
-                $store = Mage::getModel('core/store')->load($storeName, 'name');
+            $storeCode = Mage::app()->getStore($searchArr['store'])->getCode();
+            if ($storeCode) {
+                $store = Mage::getModel('core/store')->load($storeCode);
                 if ($store->getName() != Mage::app()->getStore()->getName()) {
                     //Needs to return store URL for observer to redirect using event
                     return $store->getCurrentUrl(false);

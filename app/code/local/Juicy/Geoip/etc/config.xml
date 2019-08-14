@@ -4,7 +4,7 @@
 <config>
     <modules>
         <Juicy_Geoip>
-            <version>1.2.1</version>
+            <version>1.2.4</version>
         </Juicy_Geoip>
     </modules>
     <global>

@@ -6,14 +6,13 @@ class Juicy_Geoip_Model_Observer
     {
         if(Mage::helper("geoip")->isModuleEnabled() == 1 && !Mage::helper("geoip")->isPrivateIp() && !Mage::helper("geoip")->isCrawler()){
             if(Mage::helper("geoip")->enableTestMode()){
-                var_dump("in here");
                 Mage::getModel('core/session')->unsGeoipChecked();
             }
             $session = Mage::getModel('core/session')->getGeoipChecked();
             if(!isset($session) || $session == false){
-                $redirStore = Mage::getModel('geoip/geoip')->runGeoip();           
+                $redirStore = Mage::getModel('geoip/geoip')->runGeoip();
                 if($redirStore){
-                    $e->getControllerAction()->getResponse()->setRedirect($redirStore);
+                    $e->getControllerAction()->getResponse()->setRedirect($redirStore)->sendResponse();
                 }
                 Mage::getSingleton('core/session')->setGeoipChecked(true);
             }
