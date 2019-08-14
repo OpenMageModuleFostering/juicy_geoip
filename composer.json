@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Juicy_GeoIP",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "Change currency using the visitors IP address and the PHP GeoIP module",
+    "authors": [
+    {
+        "name": "Jonathan Webb",
+        "email": "jonathan.webb@juicymedia.co.uk"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

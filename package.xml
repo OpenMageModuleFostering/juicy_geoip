@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Juicy_GeoIP</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Change currency using the visitors IP address and the PHP GeoIP module</summary>
+    <description>Gets the customers current country using PHP's GeoIP module, filters through a list of countries and grabs the associated currency code for Magento</description>
+    <notes>Stable Release</notes>
+    <authors><author><name>Jonathan Webb</name><user>JuicyMedia</user><email>jonathan.webb@juicymedia.co.uk</email></author></authors>
+    <date>2015-01-19</date>
+    <time>11:03:07</time>
+    <contents><target name="magelocal"><dir name="Juicy"><dir name="Geoip"><dir name="Block"><file name="Countrydefine.php" hash="0032d7797b0dc464fe0edc99d6a7fe7e"/></dir><dir name="Helper"><file name="Data.php" hash="d724ae9ca937562e91e8b45a052beff2"/></dir><dir name="Model"><file name="Geoip.php" hash="537242b732c5bcd2e087137c864359e9"/><file name="Observer.php" hash="176a89109b18c4322ec109c465067e8a"/></dir><dir name="etc"><file name="adminhtml.xml" hash="5ac9ab6f0f5b9bb998fa7666dbe54803"/><file name="config.xml" hash="8926d6a0f8d457c837b5972fbd42c90c"/><file name="system.xml" hash="91e1e5163d0b725fd810e41a1339a875"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Juicy_Geoip.xml" hash="c4ebc7b11208b6c6b6020cb581ba9b12"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="juicy"><dir name="geoip"><dir name="system"><dir name="config"><dir name="form"><dir name="field"><file name="array.phtml" hash="83994a57e699b206fe5fa898d1f99690"/></dir></dir></dir></dir></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php><extension><name>geoip</name><min/><max>100</max></extension></required></dependencies>
+</package>

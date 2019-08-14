@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<config>
+    <modules>
+        <Juicy_Geoip>
+            <version>0.2.0</version>
+        </Juicy_Geoip>
+    </modules>
+    <global>
+        <helpers>
+            <geoip>
+                <class>Juicy_Geoip_Helper</class>
+            </geoip>
+        </helpers>
+        <blocks>
+            <geoip>
+                <class>Juicy_Geoip_Block</class>
+            </geoip>
+        </blocks>
+        <models>
+            <geoip>
+                <class>Juicy_Geoip_Model</class>
+            </geoip>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <geoip>
+                        <class>geoip/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </geoip>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
+    <default>
+        <geoip>
+            <general>
+                <status>0</status>
+                <testing>0</testing>
+                <country_override></country_override>
+                <switch_currency>0</switch_currency>
+                <switch_store>0</switch_store>
+                <apache_or_file>0</apache_or_file>
+                <file_location>EXAMPLE: geoip.dat</file_location>                
+            </general>  
+            <geoipset>    
+                       
+            </geoipset>
+        </geoip>
+    </default>
+</config>
